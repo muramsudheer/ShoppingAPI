@@ -2,10 +2,16 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
-
+const mongoose = require('mongoose');
 // Importing all necessary routes
 const products = require('./api/routes/products');
 const orders = require('./api/routes/orders');
+
+mongoose.connect('mongodb+srv://mohamed:' + process.env.mongoPW + '@shopping-api.lpoen.mongodb.net/shopping-api?retryWrites=true&w=majority',
+{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 // Body parsing
 app.use(morgan('dev'));
