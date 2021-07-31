@@ -12,6 +12,7 @@ mongoose.connect('mongodb+srv://mohamed:' + process.env.mongoPW + '@shopping-api
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+mongoose.Promise = global.Promise;
 
 // Body parsing
 app.use(morgan('dev'));
