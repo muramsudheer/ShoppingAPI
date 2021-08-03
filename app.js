@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 // Importing all necessary routes
 const products = require('./api/routes/products');
 const orders = require('./api/routes/orders');
+const users = require('./api/routes/users');
 
 mongoose.connect('mongodb+srv://mohamed:' + process.env.mongoPW + '@shopping-api.lpoen.mongodb.net/shopping-api?retryWrites=true&w=majority',
 {
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 // Accessing appropriate route based on request
 app.use('/products', products);
 app.use('/orders', orders);
+app.use('/users', users);
 
 // Error handling if request doesn't go into any of the routes
 app.use((req, res, next) => {
